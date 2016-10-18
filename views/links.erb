@@ -1,5 +1,5 @@
 <ul id='links'>
-	<% Link.all.each do |link| %>
+	<% Link.all.each do |link, tag| %>
 	  <li><%= link.title %> <%= link.url %></li>
 	<% end %>
 </ul>

@@ -21,3 +21,16 @@ feature 'creating links' do
    end
 	end
 end
+
+feature 'adding tags to links' do
+  scenario 'add a link with a tag' do
+    visit '/'
+    click_button 'Add New Link'
+    fill_in :title, with: 'Facebook'
+    fill_in :url, with: 'http://www.facebook.com'
+    fill_in :tags, with: 'social-media'
+    click_button 'Submit'
+    link = Link.last
+    expect(link.tags.map(&:tag_name)).to include("social-media")
+  end
+end
