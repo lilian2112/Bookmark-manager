@@ -1,1 +1,9 @@
-<ul id='links'> <li> Facebook, http://www.facebook.com</li></ul>
+<ul id='links'>
+	<% Link.all.each do |link| %>
+	  <li><%= link.title %> <%= link.url %></li>
+	<% end %>
+</ul>
+
+<form action='/links/new'>
+	<input type="submit" value='Add New Link'>
+</form>
