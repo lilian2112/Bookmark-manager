@@ -114,6 +114,12 @@ Capybara.app = BookmarkManager
 
 end
 
+RSpec.configure do |config|
+  DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
+  DataMapper.finalize
+  DataMapper.auto_upgrade!
+end
+
 require 'database_cleaner'
 
 RSpec.configure do |config|
@@ -134,3 +140,5 @@ RSpec.configure do |config|
   end
 
 end
+
+
